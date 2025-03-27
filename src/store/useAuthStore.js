@@ -5,8 +5,8 @@ import toast from "react-hot-toast";
 
 export const useAuthStore = create((set) => ({
     authUser: null,
-    isCheckingAuth: true,
 
+    isCheckingAuth: true,
     isSigningUp: false,
     isLoggingIn: false,
     isUpdatingProfile: false,
@@ -15,7 +15,6 @@ export const useAuthStore = create((set) => ({
         try {
             const res =await axiosInstance.get("/auth/check-auth");
             set({authUser:res.data,isCheckingAuth:false});
-            console.log(res.data);
 
         } catch (error) {
             console.log(error.message);
@@ -26,9 +25,6 @@ export const useAuthStore = create((set) => ({
         try {
             set({isSigningUp:true});
             const res = await axiosInstance.post("/auth/signup",formData);
-            if (!res.status === 201) {
-                set({authUser:res.data,isSigningUp:false});
-            }
             set({authUser:res.data,isSigningUp:false});
             toast.success("Account created successfully");
         } catch (error) {
@@ -43,9 +39,8 @@ export const useAuthStore = create((set) => ({
         try {
             console.log(formData);
             const res = await axiosInstance.post("/auth/login",formData);
-
+            console.log(res.data);
             set({authUser:res.data,isLoggingIn:false});
-
             toast.success("Login successfull");
             
         } catch (error) {
@@ -63,6 +58,19 @@ export const useAuthStore = create((set) => ({
         } catch (error) {
             toast.error(error.response.data.message);
             console.log(error.message);
+        }
+    },
+    updateProfile:async(formData)=>{
+        set({isUpdatingProfile:true});
+        try {
+            const res=await axiosInstance.put("/auth/update-profile",formData);
+            set({authUser:res.data,isUpdatingProfile:false});
+            toast.success("Profil updated successfully");
+        } catch (error) {
+            console.log(error);
+            toast.error(error.response.data.message);
+            set({isUpdatingProfile:false});
+            
         }
     }
 }));

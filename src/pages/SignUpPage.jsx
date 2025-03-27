@@ -23,7 +23,6 @@ const SignUpPage = () => {
   };
 
   const handleSubmit = (e)=>{
-    // toast.success("Form Submitted");
     e.preventDefault();
     const success = validateForm();
     if (success) {
