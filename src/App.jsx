@@ -14,15 +14,16 @@ import { useEffect } from "react";
 
 import { Toaster } from "react-hot-toast";
 import { Loader } from "lucide-react";
+import { useThemeStore } from "./store/useThemeStore";
 
 const app = ()=>{
-
+  
   const {authUser,checkAuth,isCheckingAuth}=useAuthStore();
-
+  const {theme}=useThemeStore();
   useEffect(()=>{
     checkAuth();
   }
-  ,[checkAuth]);
+  ,[checkAuth]); //if checkauth changes then useEffect will run
 
   if (isCheckingAuth && !authUser)
     return (
@@ -31,10 +32,10 @@ const app = ()=>{
       </div>
     );
 
-
+  
   
   return (
-    <div>
+    <div data-theme={theme} className="flex flex-col h-screen">
       <NavBar />
       <Routes>
         <Route path="/" element={authUser ? <HomePage /> : <Navigate to="/login"/>} />
