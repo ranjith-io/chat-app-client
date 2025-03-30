@@ -27,11 +27,16 @@ export const useAuthStore = create((set,get) => ({
             
         }},
     signUp:async(formData)=>{
+        set({isSigningUp:true});
+
         try {
-            set({isSigningUp:true});
             const res = await axiosInstance.post("/auth/signup",formData);
             set({authUser:res.data,isSigningUp:false});
+            console.log(res.data);
+
+            console.log("setauth")
             toast.success("Account created successfully");
+            console.log("toast")
             get().connectSocket();
         } catch (error) {
             toast.error(error.response.data.message);
