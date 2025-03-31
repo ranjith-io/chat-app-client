@@ -2,7 +2,6 @@ import { create } from "zustand";
 import toast from "react-hot-toast";
 import {axiosInstance} from "../lib/axios";
 import { useAuthStore } from "./useAuthStore";
-// import { socket } from "socket.io-client";
 
 
 
@@ -44,7 +43,6 @@ export const useChatStore = create((set,get) => ({
         const {selectedUser,messages}=get();
         try {
             const res = await axiosInstance.post(`/messages/send/${selectedUser._id}`,messageData);
-            console.log("here");
             set({messages:[...messages,res.data]});
         } catch (error) {
             console.log(error.response.data.message);

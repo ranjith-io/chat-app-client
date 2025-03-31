@@ -85,10 +85,18 @@ export const useAuthStore = create((set,get) => ({
             
         }
     },
+    addContact:async(email)=>{
+        try {
+            const res = await axiosInstance.patch("/auth/add-contact",{email});
+            toast.success(res.data.message);
+        } catch (error) {
+            toast.error(error.response.data.message);
+        }
+    },
     connectSocket:()=>{
         const {authUser} = get();
         if(!authUser ||get().socket?.connected) return;
-        console.log("Connecting socket with userId:", authUser._id); // Debugging log
+        
         const socket = io(BASE_URL,{
             query:{
                 userId:authUser._id
