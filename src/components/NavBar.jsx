@@ -1,10 +1,16 @@
 import React from 'react'
 import { useAuthStore } from '../store/useAuthStore'
-import {  LogOut, MessageSquare, Settings, User, UserPlus } from 'lucide-react'
+import {  LogOut, MessageSquare, Moon, Settings, Sun, User, UserPlus } from 'lucide-react'
 import { Link } from 'react-router-dom'
 
 const navBar = () => {
-  const {logout,authUser} = useAuthStore()
+  const {logout,authUser} = useAuthStore();
+
+  const toggleTheme = (newTheme) => {
+    const root = document.documentElement;
+    root.setAttribute('data-theme', newTheme);
+    localStorage.setItem('theme', newTheme);
+  }
   return (
     <div>
     <header 
@@ -23,16 +29,21 @@ const navBar = () => {
         </div>
 
         <div className="flex items-center gap-2">
-            <Link
-              to={"/settings"}
-              className={`
-              btn btn-sm gap-2 transition-colors
-              
-              `}
-            >
-              <Settings className="w-4 h-4" />
-              <span className="hidden sm:inline">Settings</span>
-            </Link>
+            {/* Theme change*/}
+            <div className="flex items-center gap-1 bg-base-200 rounded-full p-1">
+              <button
+                onClick={() => toggleTheme("light")}
+                className="p-1 rounded-full transition-all shadow-md"
+              >
+                <Sun size={16} />
+              </button>
+              <button
+                onClick={() => toggleTheme("dark")}
+                className="p-1 rounded-full transition-all shadow-md"
+              >
+                <Moon size={16} />
+              </button>
+            </div>
 
             {authUser && (
               <>

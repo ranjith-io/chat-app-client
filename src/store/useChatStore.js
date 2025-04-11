@@ -12,7 +12,7 @@ export const useChatStore = create((set,get) => ({
     isUserLoading:false,
     isMessagesLoading:false,
 
-    //todo
+    
     setSelectedUser:(selectedUser) => set({selectedUser}),
 
     getUsers:async () => {
