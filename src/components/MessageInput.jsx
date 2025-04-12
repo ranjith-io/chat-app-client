@@ -15,8 +15,8 @@ const MessageInput = () => {
             toast.error("Please select an image file");
             return;
         }
-        let reader =new FileReader();
-        reader.onloadend=()=>{
+        const reader =new FileReader();
+        reader.onload=()=>{
             setImagePreview(reader.result);
         }
         reader.readAsDataURL(file);
@@ -39,13 +39,11 @@ const MessageInput = () => {
                     image:imagePreview
                 }
             );
-            //clear
             setText('');
             setImagePreview('');
             fileInputRef.current.value='';
         } catch (error) {
             toast.error(error.response.data.message);
-            console.log(error.message);
         }
     }
 

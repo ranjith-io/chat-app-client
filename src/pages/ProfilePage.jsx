@@ -12,8 +12,10 @@ const ProfilePage = () => {
   ,[checkAuth]);
   const handleImageUpload = async (e) => {
     const file = e.target.files[0];
-    if (!file) return;
-
+    if (!file.type.startsWith("image/")){
+      toast.error("Please select an image file");
+      return;
+  }
     const reader = new FileReader();
     reader.readAsDataURL(file);
     reader.onload = async() => {
