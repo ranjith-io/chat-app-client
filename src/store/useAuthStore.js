@@ -2,6 +2,7 @@ import { create } from "zustand";
 import { axiosInstance } from "../lib/axios";
 import toast from "react-hot-toast";
 import { io } from "socket.io-client";
+import { useChatStore } from "./useChatStore";
 
 const BASE_URL = import.meta.env.VITE_API_BASE || "http://localhost:5001";
 export const useAuthStore = create((set,get) => ({
@@ -49,7 +50,6 @@ export const useAuthStore = create((set,get) => ({
         set({isLoggingIn:true});
         try {
             const res = await axiosInstance.post("/auth/login",formData);
-            console.log(res.data);
             set({authUser:res.data,isLoggingIn:false});
             toast.success("Login successfull");
             get().connectSocket();
@@ -64,6 +64,7 @@ export const useAuthStore = create((set,get) => ({
         try {
             await axiosInstance.post("/auth/logout");
             set({authUser:null});
+            useChatStore.getState().setSelectedUser(null);
             toast.success("Log out successfull");
             get().disconnectSocket();
 
@@ -77,9 +78,8 @@ export const useAuthStore = create((set,get) => ({
         try {
             const res=await axiosInstance.put("/auth/update-profile",formData);
             set({authUser:res.data,isUpdatingProfile:false});
-            toast.success("Profil updated successfully");
+            toast.success("Profile updated successfully");
         } catch (error) {
-            console.log(error);
             toast.error(error.response.data.message);
             set({isUpdatingProfile:false});
             

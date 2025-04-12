@@ -18,6 +18,12 @@ import { Loader } from "lucide-react";
 const app = ()=>{
   
   const {authUser,checkAuth,isCheckingAuth}=useAuthStore();
+  
+  useEffect(() => {
+    const savedTheme = localStorage.getItem('theme') || 'light';
+    document.documentElement.setAttribute('data-theme', savedTheme);
+  }, []);
+  
   useEffect(()=>{
     checkAuth();
   }
