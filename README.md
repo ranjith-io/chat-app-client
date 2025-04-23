@@ -1,12 +1,69 @@
-# React + Vite
+## 🌍Live Url.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+https://master.do3vano90nz2a.amplifyapp.com
 
-Currently, two official plugins are available:
+Please manually accept this API endpoint in Browser:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+(click here --> [API Endpoint](https://34.235.233.81:5001))
 
-## Expanding the ESLint configuration
+As It is a Self-Signed SSL Cert and for Deveopment. 
 
-If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+# 🔊 Real-Time Chat Application
+
+This is a real-time chat app inspired by Discord. It supports messaging, file sharing, and live updates — all built with a modern tech stack using **React**, **Node.js**, **MongoDB**, and **Socket.IO**.
+
+---
+
+## Technologies Used
+
+### 🖥️ Frontend
+- *Vite + React* – Fast and modern UI development.
+- *Tailwind CSS* + **DaisyUI** – For beautiful and responsive styling.
+- *Zustand* – Lightweight global state management.
+- *Socket.IO Client* – Real-time communication with the backend.
+- **Lucide Icons** – Clean, scalable icons.
+- **React Hot Toast** – Toast notifications.
+
+### 🌐 Backend
+- *Node.js + Express* – Server-side logic and APIs(RESTAPIs).
+- *MongoDB (with Mongoose)* – NoSQL database for storing users, chats, messages.
+- *Socket.IO* – Enables real-time messaging.
+- *Cloudinary* – For image uploads.
+- *JWT* – Authentication and session management.
+
+---
+
+## 🔐 Authentication
+- Simple login and registration system with JWT and session IDs.
+- User sessions are maintained with secure cookies.
+
+---
+
+## 💬 Features
+
+- Real-time one-on-one messaging using **Socket.IO**.
+- Upload and share files via **Cloudinary**.
+- Secure user authentication (JWT-based).
+- Online/offline user tracking.
+- Clean UI with light and dark theme modes.
+
+---
+
+##  ⚙️Deployment
+
+- Backend: Hosting on AWS EC2.
+
+- Frontend: Hosted using AWS Amplify hosting.
+
+- Environment variables managed securely using .env files.
+
+- CI/CD using **GitHub Actions** to build and deploy Backend server , Amplify Auto-build for Frontend.
+
+- Ensures code quality and quick deployment.
+
+
+---
+
+
+
+
