@@ -18,7 +18,7 @@ This is a real-time chat app inspired by Discord. It supports messaging, file sh
 
 ### 🖥️ Frontend
 - *Vite + React* – Fast and modern UI development.
-- *Tailwind CSS* + **DaisyUI** – For beautiful and responsive styling.
+- *Tailwind CSS* + **DaisyUI** – For customizable and responsive styling.
 - *Zustand* – Lightweight global state management.
 - *Socket.IO Client* – Real-time communication with the backend.
 - **Lucide Icons** – Clean, scalable icons.
@@ -27,7 +27,7 @@ This is a real-time chat app inspired by Discord. It supports messaging, file sh
 ### 🌐 Backend
 - *Node.js + Express* – Server-side logic and APIs(RESTAPIs).
 - *MongoDB (with Mongoose)* – NoSQL database for storing users, chats, messages.
-- *Socket.IO* – Enables real-time messaging.
+- *Socket.IO* – Enables real-time bidirectional communication with WebSockets.
 - *Cloudinary* – For image uploads.
 - *JWT* – Authentication and session management.
 
