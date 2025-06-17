@@ -4,7 +4,7 @@ https://master.do3vano90nz2a.amplifyapp.com
 
 Please manually accept this API endpoint in Browser:
 
-(click here --> [API Endpoint](https://18.233.183.119:5001))
+(click here --> [API Endpoint](https://35.172.114.103:5001))
 
 As It is a Self-Signed SSL Cert and for Deveopment. 
 
